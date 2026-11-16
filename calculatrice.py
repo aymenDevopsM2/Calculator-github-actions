@@ -11,4 +11,4 @@ def division(a, b):
 
 # Fonction avec un bug volontaire
 def soustraction(a, b):
-    return a + b
+    return a - b
