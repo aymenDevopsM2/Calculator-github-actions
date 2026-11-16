@@ -1,0 +1,34 @@
+
+name: Pipeline CI Python
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Download the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Install Python 3.12
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 3. Install pytest
+      - name: Install pytest
+        run: pip install pytest
+
+      # 4. Execute unit tests
+      - name: Run tests
+        run: pytest
